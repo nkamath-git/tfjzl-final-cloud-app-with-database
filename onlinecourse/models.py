@@ -101,3 +101,10 @@ class Enrollment(models.Model):
 #class Submission(models.Model):
 #    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
 #    choices = models.ManyToManyField(Choice)
+class Question(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    question_text = models.CharField(max_length=1000)
+    grade = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.question_text
